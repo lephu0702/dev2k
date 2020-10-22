@@ -1,0 +1,14 @@
+{
+  "name": "com.unimob.dev2k",
+  "displayName": "dev2k",
+  "version": "0.0.1",
+  "unity": "2019.4",
+  "author": "dev2k",
+  "description": "",
+  "dependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lephu0702/dev2k.git"
+  }
+}
