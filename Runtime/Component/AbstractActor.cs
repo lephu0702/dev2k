@@ -7,8 +7,9 @@
         [Header("DEBUG"), SerializeField] private List<string> m_ComsNameList = new List<string>();
         private bool m_HasAwake = false;
         private bool m_HasStart = false;
+
         private List<ICom> m_ComponentList = new List<ICom>();
-        private List<ICom> m_UpdateComList = new List<ICom>();
+        // private List<ICom> m_UpdateComList = new List<ICom>();
 
         #region Public
 
@@ -26,11 +27,11 @@
 
             m_ComsNameList.Add(com.GetType().Name);
 
-            if (com is MonoBehaviour) {
-            } else {
-                m_UpdateComList.Add(com);
-                m_UpdateComList.Sort(ComWrapComparison);
-            }
+            // if (com is MonoBehaviour) {
+            // } else {
+            //     m_UpdateComList.Add(com);
+            //     m_UpdateComList.Sort(ComWrapComparison);
+            // }
 
             OnAddCom(com);
 
@@ -63,10 +64,10 @@
                     m_ComponentList.RemoveAt(i);
                     m_ComsNameList.RemoveAt(i);
 
-                    if (com is MonoBehaviour) {
-                    } else {
-                        m_UpdateComList.Remove(com);
-                    }
+                    // if (com is MonoBehaviour) {
+                    // } else {
+                    //     m_UpdateComList.Remove(com);
+                    // }
 
                     OnRemoveCom(com);
 
@@ -82,10 +83,10 @@
                     m_ComponentList.RemoveAt(i);
                     m_ComsNameList.RemoveAt(i);
 
-                    if (com is MonoBehaviour) {
-                    } else {
-                        m_UpdateComList.Remove(com);
-                    }
+                    // if (com is MonoBehaviour) {
+                    // } else {
+                    //     m_UpdateComList.Remove(com);
+                    // }
 
                     OnRemoveCom(com);
 
@@ -155,7 +156,7 @@
 
             m_ComponentList.Clear();
             m_ComsNameList.Clear();
-            m_UpdateComList.Clear();
+            // m_UpdateComList.Clear();
 
             OnActorDestroy();
         }
@@ -183,23 +184,17 @@
             return null;
         }
 
-        protected void ProcessAllCom(Action<ICom> process) {
-            for (int i = m_ComponentList.Count - 1; i >= 0; --i) {
-                process(m_ComponentList[i]);
-            }
-        }
-
         protected void LateUpdateAllComs() {
             float dt = Time.deltaTime;
-            for (int i = m_UpdateComList.Count - 1; i >= 0; --i) {
-                m_UpdateComList[i].OnComLateUpdate(dt);
+            for (int i = m_ComponentList.Count - 1; i >= 0; --i) {
+                m_ComponentList[i].OnComLateUpdate(dt);
             }
         }
 
         protected void UpdateAllComs() {
             float dt = Time.deltaTime;
-            for (int i = m_UpdateComList.Count - 1; i >= 0; --i) {
-                m_UpdateComList[i].OnComUpdate(dt);
+            for (int i = m_ComponentList.Count - 1; i >= 0; --i) {
+                m_ComponentList[i].OnComUpdate(dt);
             }
         }
 
