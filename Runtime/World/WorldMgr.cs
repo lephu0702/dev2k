@@ -6,7 +6,7 @@
     public class WorldMgr : IGameMgr {
         private WorldRoot m_WorldRoot;
 
-        public WorldRoot worldRoot {
+        public WorldRoot WorldRoot {
             get { return m_WorldRoot; }
         }
 

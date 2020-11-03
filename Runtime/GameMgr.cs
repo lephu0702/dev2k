@@ -9,6 +9,7 @@
         public EventMgr EventMgr;
         public InputMgr InputMgr;
         public PoolMgr PoolMgr;
+        public WorldMgr WorldMgr;
 
         #region Singleton
 
@@ -23,6 +24,7 @@
             EventMgr = new EventMgr(this);
             InputMgr = new InputMgr(this);
             PoolMgr = new PoolMgr(this);
+            WorldMgr = new WorldMgr(this);
         }
 
         public override void Dispose() {
@@ -32,6 +34,7 @@
             EventMgr.Release();
             InputMgr.Release();
             PoolMgr.Release();
+            WorldMgr.Release();
         }
 
         public void Initialize() {
@@ -40,6 +43,7 @@
             EventMgr.Initialize();
             InputMgr.Initialize();
             PoolMgr.Initialize();
+            WorldMgr.Initialize();
         }
 
         public virtual void Update() {
@@ -48,6 +52,7 @@
             EventMgr.Update();
             InputMgr.Update();
             PoolMgr.Update();
+            WorldMgr.Update();
         }
 
         public virtual void FixedUpdate() {
@@ -56,6 +61,7 @@
             EventMgr.FixedUpdate();
             InputMgr.FixedUpdate();
             PoolMgr.FixedUpdate();
+            WorldMgr.FixedUpdate();
         }
     }
 }
