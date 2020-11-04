@@ -4,16 +4,16 @@
             get { return this.GetType().Name; }
         }
 
-        public virtual void Enter(T entity) {
+        public virtual void Enter(T actor) {
         }
 
-        public virtual void Execute(T entity, float dt) {
+        public virtual void Execute(T actor, float dt) {
         }
 
-        public virtual void Exit(T entity) {
+        public virtual void Exit(T actor) {
         }
 
-        public virtual void OnMsg(T entity, int key, params object[] args) {
+        public virtual void OnMsg(T actor, int key, params object[] args) {
         }
     }
 }

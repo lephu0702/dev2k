@@ -5,7 +5,7 @@
     using UnityEngine;
 
     public class FSMStateMachine<T> {
-        public T m_Entity;
+        public T m_Actor;
 
         private FSMState<T> m_CurrentState;
         private FSMState<T> m_PreviousState;
@@ -35,13 +35,13 @@
             set { m_IsRunning = value; }
         }
 
-        public FSMStateMachine(T entity) {
-            m_Entity = entity;
+        public FSMStateMachine(T actor) {
+            m_Actor = actor;
             m_CurrentState = m_PreviousState = m_GlobalState = null;
         }
 
-        public void ResetStateMachine(T entity, FSMStateFactory<T> factory) {
-            m_Entity = entity;
+        public void ResetStateMachine(T actor, FSMStateFactory<T> factory) {
+            m_Actor = actor;
             m_StateFactory = factory;
             m_CurrentState = m_PreviousState = m_GlobalState = null;
         }
@@ -57,13 +57,13 @@
 
         public void SetGlobalState(FSMState<T> state) {
             if (m_GlobalState != null) {
-                m_GlobalState.Exit(m_Entity);
+                m_GlobalState.Exit(m_Actor);
             }
 
             m_GlobalState = state;
 
             if (m_GlobalState != null) {
-                m_GlobalState.Enter(m_Entity);
+                m_GlobalState.Enter(m_Actor);
             }
 
             OnGlobalStateChange();
@@ -75,11 +75,11 @@
             }
 
             if (m_GlobalState != null) {
-                m_GlobalState.Execute(m_Entity, dt);
+                m_GlobalState.Execute(m_Actor, dt);
             }
 
             if (m_CurrentState != null) {
-                m_CurrentState.Execute(m_Entity, dt);
+                m_CurrentState.Execute(m_Actor, dt);
             }
         }
 
@@ -100,14 +100,14 @@
             }
 
             if (m_CurrentState != null) {
-                m_CurrentState.Exit(m_Entity);
+                m_CurrentState.Exit(m_Actor);
                 m_PreviousState = m_CurrentState;
             }
 
             m_CurrentState = state;
 
             if (m_CurrentState != null) {
-                m_CurrentState.Enter(m_Entity);
+                m_CurrentState.Enter(m_Actor);
             }
 
             OnCurrentStateChange();
