@@ -6,7 +6,7 @@
     public class AbstractCom : ICom {
         private AbstractActor m_Actor;
 
-        public AbstractActor Actor {
+        public virtual AbstractActor Actor {
             get { return m_Actor; }
         }
 

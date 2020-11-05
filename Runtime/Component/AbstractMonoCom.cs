@@ -6,7 +6,7 @@
     public class AbstractMonoCom : MonoBehaviour, ICom {
         private AbstractActor m_AbstractActor;
 
-        public AbstractActor Actor {
+        public virtual AbstractActor Actor {
             get { return m_AbstractActor; }
         }
 
