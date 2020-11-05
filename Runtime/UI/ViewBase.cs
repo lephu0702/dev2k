@@ -37,7 +37,7 @@
             if (UIMgr != null) {
                 UIMgr.Show(name);
             } else {
-                GameMgr.S.UIMgr.Show(name);
+                GameMain.S.UIMgr.Show(name);
             }
         }
 
@@ -52,7 +52,7 @@
             if (UIMgr != null) {
                 UIMgr.CloseUI(uiName);
             } else {
-                GameMgr.S.UIMgr.CloseUI(uiName);
+                GameMain.S.UIMgr.CloseUI(uiName);
             }
         }
     }
