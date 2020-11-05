@@ -46,6 +46,29 @@
             m_CurrentState = m_PreviousState = m_GlobalState = null;
         }
 
+        public bool IsCurrentState(string stateName) {
+            if (m_CurrentState != null) {
+                if (m_CurrentState.StateName.Equals(stateName)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool IsCurrentState<K>(K key) where K : IConvertible {
+            if (m_CurrentState != null) {
+                FSMState<T> state = GetStateFromFactory(key, false);
+                if (state != null) {
+                    if (m_CurrentState.StateName.Equals(state.StateName)) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
         public void SetGlobalStateByID<K>(K key, bool forceCreate = false) where K : IConvertible {
             FSMState<T> state = GetStateFromFactory(key, forceCreate);
             if (state == null) {

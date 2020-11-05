@@ -92,7 +92,7 @@
             return result;
         }
 
-        private FSMState<T> GetStateFromCache(int key) {
+        public FSMState<T> GetStateFromCache(int key) {
             if (m_StateCache == null) {
                 return null;
             }
