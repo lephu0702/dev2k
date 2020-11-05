@@ -43,6 +43,7 @@
             // }
 
             var sceneType = "FactoryMethod." + Enum.GetName(typeof(BuildScene), buildScene) + "Scene";
+            Log.i(sceneType);
             var scene = (IScene) Activator.CreateInstance(Type.GetType(sceneType), this);
 
             Log.i("SetScene: " + scene?.ToString());
