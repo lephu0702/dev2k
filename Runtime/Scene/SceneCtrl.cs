@@ -42,7 +42,9 @@
             //         return;
             // }
 
-            IScene scene = IScene.Create();
+            var sceneType = "FactoryMethod." + Enum.GetName(typeof(BuildScene), buildScene) + "Scene";
+            var scene = (IScene) Activator.CreateInstance(Type.GetType(sceneType), this);
+
             Log.i("SetScene: " + scene?.ToString());
             m_IsSceneBegin = false;
 
