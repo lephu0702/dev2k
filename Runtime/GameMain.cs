@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class GameMgr : Singleton<GameMgr> {
+    public class GameMain : Singleton<GameMain> {
         public UIMgr UIMgr;
         public ResMgr ResMgr;
         public EventMgr EventMgr;
@@ -13,7 +13,7 @@
 
         #region Singleton
 
-        protected GameMgr() {
+        protected GameMain() {
         }
 
         #endregion

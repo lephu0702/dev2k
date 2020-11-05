@@ -7,7 +7,7 @@
         private Dictionary<GameObject, Pool<GameObject>> m_PrefabLookup;
         private Dictionary<GameObject, Pool<GameObject>> m_InstanceLookup;
 
-        public PoolMgr(GameMgr gameMgr) : base(gameMgr) {
+        public PoolMgr(GameMain gameMain) : base(gameMain) {
             m_PrefabLookup = new Dictionary<GameObject, Pool<GameObject>>();
             m_InstanceLookup = new Dictionary<GameObject, Pool<GameObject>>();
         }

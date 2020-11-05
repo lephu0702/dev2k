@@ -8,7 +8,7 @@ namespace dev2k {
     public class EventMgr : IGameMgr, IEventMgr {
         private Dictionary<string, List<IEvent>> m_EventMap;
 
-        public EventMgr(GameMgr gameMgr) : base(gameMgr) {
+        public EventMgr(GameMain gameMain) : base(gameMain) {
             m_EventMap = new Dictionary<string, List<IEvent>>();
         }
 

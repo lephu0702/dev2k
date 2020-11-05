@@ -7,7 +7,7 @@
         private Hashtable m_ResHashtable;
         private Dictionary<string, GameObject> m_GoCacheDict;
 
-        public ResMgr(GameMgr gameMgr) : base(gameMgr) {
+        public ResMgr(GameMain gameMain) : base(gameMain) {
             m_ResHashtable = new Hashtable();
             m_GoCacheDict = new Dictionary<string, GameObject>();
         }
