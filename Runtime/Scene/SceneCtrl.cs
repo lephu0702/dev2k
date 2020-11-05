@@ -27,21 +27,22 @@
         }
 
         public void SetScene(BuildScene buildScene, bool isNow = true, bool isAsync = false) {
-            IScene scene = null;
-            switch (buildScene) {
-                case BuildScene.Splash:
-                    scene = new SplashScene(this);
-                    break;
-                case BuildScene.Menu:
-                    break;
-                case BuildScene.Main:
-                    break;
-                case BuildScene.Game:
-                    break;
-                default:
-                    return;
-            }
+            // IScene scene = null;
+            // switch (buildScene) {
+            //     case BuildScene.Splash:
+            //         scene = new SplashScene(this);
+            //         break;
+            //     case BuildScene.Menu:
+            //         break;
+            //     case BuildScene.Main:
+            //         break;
+            //     case BuildScene.Game:
+            //         break;
+            //     default:
+            //         return;
+            // }
 
+            IScene scene = IScene.Create();
             Log.i("SetScene: " + scene?.ToString());
             m_IsSceneBegin = false;
 

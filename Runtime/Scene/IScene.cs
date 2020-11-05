@@ -7,7 +7,7 @@
         protected IScene(SceneCtrl controller) {
             Controller = controller;
         }
-
+        
         public virtual void Begin() {
             Main = GameMain.S;
             Main.Initialize();
@@ -27,6 +27,10 @@
 
         public override string ToString() {
             return Name;
+        }
+
+        public static IScene Create() {
+            return null;
         }
     }
 }
