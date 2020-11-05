@@ -37,7 +37,7 @@
             WorldMgr.Release();
         }
 
-        public void Initialize() {
+        public virtual void Initialize() {
             UIMgr.Initialize();
             ResMgr.Initialize();
             EventMgr.Initialize();
