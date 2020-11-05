@@ -2,27 +2,27 @@
     public abstract class IScene {
         public string Name { set; get; }
         public SceneCtrl Controller { set; get; }
-        public GameMgr Mgr { get; private set; }
+        public GameMain Main { get; private set; }
 
         protected IScene(SceneCtrl controller) {
             Controller = controller;
         }
 
         public virtual void Begin() {
-            Mgr = GameMgr.S;
-            Mgr.Initialize();
+            Main = GameMain.S;
+            Main.Initialize();
         }
 
         public virtual void End() {
-            Mgr.Dispose();
+            Main.Dispose();
         }
 
         public virtual void FixedUpdate() {
-            Mgr.FixedUpdate();
+            Main.FixedUpdate();
         }
 
         public virtual void Update() {
-            Mgr.Update();
+            Main.Update();
         }
 
         public override string ToString() {
