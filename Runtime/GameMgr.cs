@@ -13,7 +13,7 @@
 
         #region Singleton
 
-        private GameMgr() {
+        protected GameMgr() {
         }
 
         #endregion
