@@ -42,10 +42,7 @@
             //         return;
             // }
 
-            var sceneType = Enum.GetName(typeof(BuildScene), buildScene) + "Scene";
-            Log.i(sceneType);
-            var scene = (IScene) Activator.CreateInstance(Type.GetType(sceneType), this);
-
+            IScene scene = new Scene(this);
             Log.i("SetScene: " + scene?.ToString());
             m_IsSceneBegin = false;
 
