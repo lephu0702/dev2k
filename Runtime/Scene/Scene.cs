@@ -1,10 +1,10 @@
 ﻿namespace dev2k {
     using UnityEngine;
 
-    public class Scene : IScene {
+    public class Scene : MonoBehaviour, IScene {
         private GameMain m_Main;
 
-        public string Name {
+        public virtual string Name {
             get { return string.Empty; }
         }
 
