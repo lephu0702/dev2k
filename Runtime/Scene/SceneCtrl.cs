@@ -10,40 +10,34 @@
         Game
     }
 
-    public class SceneCtrl : Singleton<SceneCtrl> {
-        public IScene CurrentScene { get; private set; }
+    public class SceneCtrl {
+        public Scene CurrentScene { get; private set; }
 
         private bool m_IsSceneBegin;
 
-        #region Singleton
-
-        private SceneCtrl() {
-        }
-
-        #endregion
-
-        public override void OnSingletonInit() {
+        public SceneCtrl() {
             m_IsSceneBegin = false;
         }
 
-        public void SetScene(BuildScene buildScene, bool isNow = true, bool isAsync = false) {
-            // IScene scene = null;
-            // switch (buildScene) {
-            //     case BuildScene.Splash:
-            //         scene = new SplashScene(this);
-            //         break;
-            //     case BuildScene.Menu:
-            //         break;
-            //     case BuildScene.Main:
-            //         break;
-            //     case BuildScene.Game:
-            //         break;
-            //     default:
-            //         return;
-            // }
+        // public void SetScene<T>(bool isNow = true, bool isAsync = false) where T : IScene, new() {
+        //     IScene scene = new T();
+        //     scene.Controller = this;
+        //     m_IsSceneBegin = false;
+        //
+        //     if (isNow) {
+        //         if (isAsync) {
+        //             LoadingScene.NextScene = scene?.Name;
+        //             LoadScene("Loading");
+        //         } else {
+        //             LoadScene(scene?.Name);
+        //         }
+        //     }
+        //
+        //     CurrentScene = scene;
+        // }
 
-            IScene scene = new Scene(this);
-            Log.i("SetScene: " + scene?.ToString());
+        public void SetScene(Scene scene, bool isNow = true, bool isAsync = false) {
+            scene.Controller = this;
             m_IsSceneBegin = false;
 
             if (isNow) {
@@ -57,6 +51,38 @@
 
             CurrentScene = scene;
         }
+
+        // public void SetScene(BuildScene buildScene, bool isNow = true, bool isAsync = false) {
+        // IScene scene = null;
+        // switch (buildScene) {
+        //     case BuildScene.Splash:
+        //         scene = new SplashScene(this);
+        //         break;
+        //     case BuildScene.Menu:
+        //         break;
+        //     case BuildScene.Main:
+        //         break;
+        //     case BuildScene.Game:
+        //         break;
+        //     default:
+        //         return;
+        // }
+
+        // IScene scene = new Scene(this);
+        // Log.i("SetScene: " + scene?.ToString());
+        // m_IsSceneBegin = false;
+        //
+        // if (isNow) {
+        //     if (isAsync) {
+        //         LoadingScene.NextScene = scene?.Name;
+        //         LoadScene("Loading");
+        //     } else {
+        //         LoadScene(scene?.Name);
+        //     }
+        // }
+        //
+        // CurrentScene = scene;
+        // }
 
         private bool LoadScene(string sceneName, LoadSceneMode mode = LoadSceneMode.Single) {
             try {

@@ -2,16 +2,17 @@
     using UnityEngine;
 
     public class GameLoop : MonoSingleton<GameLoop> {
-        [SerializeField] private BuildScene m_BuildScene;
+        // [SerializeField] private BuildScene m_BuildScene;
+        [SerializeField] private Scene m_Scene;
 
         public SceneCtrl Scene { get; private set; }
 
         private void Awake() {
-            Scene = SceneCtrl.S;
+            Scene = new SceneCtrl();
         }
 
         private void Start() {
-            Scene.SetScene(m_BuildScene, false);
+            Scene.SetScene(m_Scene, false);
         }
 
         private void FixedUpdate() {
