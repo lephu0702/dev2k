@@ -1,8 +1,6 @@
 {
     "name": "dev2k.Editor",
-    "references": [
-        "dev2k"
-    ],
+    "references": [],
     "includePlatforms": [
         "Editor"
     ],

@@ -49,7 +49,7 @@ namespace dev2k {
         private List<MouseEvent> m_MouseEventList;
         private List<MouseOverObjectEvent> m_MouseOverObjectEventList;
 
-        public InputMgr(GameMain gameMain) : base(gameMain) {
+        public InputMgr(GameMgr gameMgr) : base(gameMgr) {
             m_KeyEventList = new List<KeyEvent>();
             m_MouseEventList = new List<MouseEvent>();
             m_MouseOverObjectEventList = new List<MouseOverObjectEvent>();

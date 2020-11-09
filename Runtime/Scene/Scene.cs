@@ -1,34 +1,31 @@
-﻿namespace dev2k {
-    using UnityEngine;
+﻿using UnityEngine;
 
-    public class Scene : MonoBehaviour, IScene {
-        private GameMain m_Main;
+namespace dev2k {
+    public abstract class Scene {
+        public string Name { get; set; }
+        public SceneCtrl Controller { set; get; }
 
-        public virtual string Name {
-            get { return string.Empty; }
+        protected GameMgr GameMgr;
+
+        protected Scene(SceneCtrl controller) {
+            Controller = controller;
         }
-
-        public GameMain GameMain {
-            get { return m_Main; }
-        }
-
-        public SceneCtrl Controller { get; set; }
 
         public virtual void Begin() {
-            m_Main = GameMain.S;
-            GameMain.Initialize();
+            GameMgr = GameMgr.S;
+            GameMgr.Initialize();
         }
 
         public virtual void End() {
-            GameMain.Dispose();
+            GameMgr.Dispose();
         }
 
         public virtual void FixedUpdate() {
-            GameMain.FixedUpdate();
+            GameMgr.FixedUpdate();
         }
 
         public virtual void Update() {
-            GameMain.Update();
+            GameMgr.Update();
         }
 
         public override string ToString() {

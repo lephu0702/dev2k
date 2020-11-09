@@ -6,6 +6,8 @@
   "author": "dev2k",
   "description": "",
   "dependencies": {
+    "com.solidalloy.util": "https://github.com/SolidAlloy/SolidUtilities.git",
+    "com.solidalloy.type.references": "https://github.com/SolidAlloy/ClassTypeReference-for-Unity.git"
   },
   "repository": {
     "type": "git",

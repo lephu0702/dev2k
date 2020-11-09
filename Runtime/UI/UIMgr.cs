@@ -19,7 +19,7 @@
         private Transform m_FixedTransform;
         private Transform m_PopupTransform;
 
-        public UIMgr(GameMain gameMain) : base(gameMain) {
+        public UIMgr(GameMgr gameMgr) : base(gameMgr) {
             m_UIPathDict = new Dictionary<string, string>();
             m_UIDict = new Dictionary<string, ViewBase>();
             m_UIShowDict = new Dictionary<string, ViewBase>();

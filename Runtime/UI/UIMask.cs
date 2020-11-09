@@ -7,7 +7,7 @@ namespace dev2k {
     using UnityEngine.UI;
 
     public class UIMask : Singleton<UIMask> {
-        public GameMain GameMain { set; private get; }
+        public GameMgr GameMgr { set; private get; }
         private UIMgr m_UIMgr;
         private GameObject m_CanvasGo;
         private GameObject m_TopPanelGo;
@@ -23,7 +23,7 @@ namespace dev2k {
         #endregion
 
         public override void OnSingletonInit() {
-            m_UIMgr = GameMain.S.UIMgr;
+            m_UIMgr = GameMgr.S.UIMgr;
             m_CanvasGo = m_UIMgr.CanvasGo;
             m_TopPanelGo = m_CanvasGo;
             m_MaskPanelGo = GameObjectHelper.FindGameObject(m_CanvasGo, "UIMaskPanel", false, false);

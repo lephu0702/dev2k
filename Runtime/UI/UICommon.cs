@@ -5,6 +5,6 @@
         public const string SYS_TAG_CANVAS = "Canvas";
         public const string SYS_NORMAL_NODE = "Normal";
         public const string SYS_FIXED_NODE = "Fixed";
-        public const string SYS_POPUP_NODE = "PopUp";
+        public const string SYS_POPUP_NODE = "Popup";
     }
 }

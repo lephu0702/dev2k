@@ -1,11 +1,14 @@
 ﻿namespace dev2k {
     public abstract class IGameMgr {
-        private GameMain m_GameMain;
+        private GameMgr m_GameMgr;
 
-        public GameMain GameMgr => m_GameMain;
+        public GameMgr GameMgr => m_GameMgr;
 
-        protected IGameMgr(GameMain gameMain) {
-            m_GameMain = gameMain;
+        protected IGameMgr(GameMgr gameMgr) {
+            m_GameMgr = gameMgr;
+        }
+
+        public virtual void Awake() {
         }
 
         public virtual void Initialize() {

@@ -3,13 +3,6 @@
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
-    public enum BuildScene {
-        Splash,
-        Menu,
-        Main,
-        Game
-    }
-
     public class SceneCtrl {
         public Scene CurrentScene { get; private set; }
 
@@ -19,26 +12,8 @@
             m_IsSceneBegin = false;
         }
 
-        // public void SetScene<T>(bool isNow = true, bool isAsync = false) where T : IScene, new() {
-        //     IScene scene = new T();
-        //     scene.Controller = this;
-        //     m_IsSceneBegin = false;
-        //
-        //     if (isNow) {
-        //         if (isAsync) {
-        //             LoadingScene.NextScene = scene?.Name;
-        //             LoadScene("Loading");
-        //         } else {
-        //             LoadScene(scene?.Name);
-        //         }
-        //     }
-        //
-        //     CurrentScene = scene;
-        // }
-
-        public void SetScene(Scene scene, bool isNow = true, bool isAsync = false) {
-            scene.Controller = this;
-            m_IsSceneBegin = false;
+        public void SetScene(Type type, bool isNow = true, bool isAsync = false) {
+            var scene = (Scene) Activator.CreateInstance(type, this);
 
             if (isNow) {
                 if (isAsync) {
@@ -49,40 +24,9 @@
                 }
             }
 
+            m_IsSceneBegin = false;
             CurrentScene = scene;
         }
-
-        // public void SetScene(BuildScene buildScene, bool isNow = true, bool isAsync = false) {
-        // IScene scene = null;
-        // switch (buildScene) {
-        //     case BuildScene.Splash:
-        //         scene = new SplashScene(this);
-        //         break;
-        //     case BuildScene.Menu:
-        //         break;
-        //     case BuildScene.Main:
-        //         break;
-        //     case BuildScene.Game:
-        //         break;
-        //     default:
-        //         return;
-        // }
-
-        // IScene scene = new Scene(this);
-        // Log.i("SetScene: " + scene?.ToString());
-        // m_IsSceneBegin = false;
-        //
-        // if (isNow) {
-        //     if (isAsync) {
-        //         LoadingScene.NextScene = scene?.Name;
-        //         LoadScene("Loading");
-        //     } else {
-        //         LoadScene(scene?.Name);
-        //     }
-        // }
-        //
-        // CurrentScene = scene;
-        // }
 
         private bool LoadScene(string sceneName, LoadSceneMode mode = LoadSceneMode.Single) {
             try {

@@ -1,9 +1,10 @@
 ﻿namespace dev2k {
     using UnityEngine;
+    using TypeReferences;
 
     public class GameLoop : MonoSingleton<GameLoop> {
-        // [SerializeField] private BuildScene m_BuildScene;
-        [SerializeField] private Scene m_Scene;
+        [Inherits(typeof(Scene), ShortName = true)] [SerializeField]
+        private TypeReference m_Scene;
 
         public SceneCtrl Scene { get; private set; }
 

@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class GameMain : Singleton<GameMain> {
+    public class GameMgr : Singleton<GameMgr> {
         public UIMgr UIMgr;
         public ResMgr ResMgr;
         public EventMgr EventMgr;
@@ -13,12 +13,7 @@
 
         #region Singleton
 
-        protected GameMain() {
-        }
-
-        #endregion
-
-        public override void OnSingletonInit() {
+        protected GameMgr() {
             ResMgr = new ResMgr(this);
             UIMgr = new UIMgr(this);
             EventMgr = new EventMgr(this);
@@ -27,8 +22,18 @@
             WorldMgr = new WorldMgr(this);
         }
 
+        #endregion
+
+        public override void OnSingletonInit() {
+            UIMgr.Awake();
+            ResMgr.Awake();
+            EventMgr.Awake();
+            InputMgr.Awake();
+            PoolMgr.Awake();
+            WorldMgr.Awake();
+        }
+
         public override void Dispose() {
-            base.Dispose();
             ResMgr.Release();
             UIMgr.Release();
             EventMgr.Release();

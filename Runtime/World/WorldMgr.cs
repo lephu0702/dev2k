@@ -10,7 +10,7 @@
             get { return m_WorldRoot; }
         }
 
-        public WorldMgr(GameMain gameMain) : base(gameMain) {
+        public WorldMgr(GameMgr gameMgr) : base(gameMgr) {
             if (m_WorldRoot == null) {
                 WorldRoot root = GameObject.FindObjectOfType<WorldRoot>();
                 if (root == null) {
